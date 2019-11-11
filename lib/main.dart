@@ -20,9 +20,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Tradomatic app',
-        onGenerateRoute: router.generateRoute,
-        initialRoute: '/',
-        debugShowCheckedModeBanner: false);
+      title: 'Tradomatic app',
+      onGenerateRoute: router.generateRoute,
+      initialRoute: 'registration',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        buttonColor: Color.fromRGBO(172, 204, 70, 1)),
+    );
   }
 }

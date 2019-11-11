@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // #e1e7e7
 class WelcomePage extends StatelessWidget {
-  static final String assetWelcomeName = 'assets/welcome.svg';
+  static final String assetLogoName = 'assets/logo.svg';
   static final String assetBarleyName = 'assets/barley.svg';
   static final String assetCornName = 'assets/corn.svg';
   static final String assetRapeSeedName = 'assets/rapeSeed.svg';
@@ -13,9 +13,9 @@ class WelcomePage extends StatelessWidget {
   static final double height = 40;
   static final double width = 40;
 
-  final Widget svgWelcomeIcon = new SvgPicture.asset(
-    assetWelcomeName,
-    semanticsLabel: 'Welcome',
+  final Widget svgLogoIcon = new SvgPicture.asset(
+    assetLogoName,
+    semanticsLabel: 'Logo',
     height: 140,
     width: 120,
   );
@@ -81,7 +81,7 @@ class WelcomePage extends StatelessWidget {
                 padding: EdgeInsets.all(25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[Container(child: svgWelcomeIcon)],
+                  children: <Widget>[Container(child: svgLogoIcon)],
                 ),
               ),
               Row(
