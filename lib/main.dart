@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Tradomatic app',
       onGenerateRoute: router.generateRoute,
-      initialRoute: 'registration',
+      initialRoute: 'createOffer',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         buttonColor: Color.fromRGBO(172, 204, 70, 1)),
