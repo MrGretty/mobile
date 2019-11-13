@@ -2,8 +2,7 @@ import 'package:equatable/equatable.dart';
 
 abstract class OfferState extends Equatable {
   const OfferState();
-  
-  @override
+
   List<Object> get props => [];
 }
 

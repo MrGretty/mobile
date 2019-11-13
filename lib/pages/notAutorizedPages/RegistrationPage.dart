@@ -14,10 +14,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Steps _persentStatus = Steps.introduction;
   static final String assetLogoName = 'assets/logo.svg';
 
-  Future<bool> _onBackPressed() {
-    return new Future<bool>.value(true);
-  }
-
   final Widget svgLogoIcon = new SvgPicture.asset(
     assetLogoName,
     semanticsLabel: 'Logo',
