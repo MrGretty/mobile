@@ -25,18 +25,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
     width: 20,
   );
 
-  Steps getStepsByRouter(router) {
-    switch (router) {
-      case '/':
-        return Steps.introduction;
-      case 'profile':
-        return Steps.profile;
-      case 'sms':
-        return Steps.sms;
-        break;
-      default:
-        return Steps.introduction;
-    }
+  Future<bool> _onBackPressed() {
+    if (_persentStatus == Steps.introduction) return new Future(() => true);
+    setState(() {
+      _persentStatus = Steps.values[_persentStatus.index - 1];
+    });
+
+    return new Future(() => false);
   }
 
   double getStepsPercentValue(steps) {
@@ -130,7 +125,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                         .toInt()
                                         .toString() +
                                     '%'),
-                            progressColor: Color.fromRGBO(172, 204, 70, 1)),
+                            progressColor: Color.fromRGBO(23, 182, 191, 1)),
                       ],
                     ),
                   ),
