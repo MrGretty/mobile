@@ -9,7 +9,7 @@ abstract class OfferEvents extends Equatable {
 
 class UpdateOffer extends OfferEvents {
   final int operation;
-
+  
   const UpdateOffer(this.operation);
 
   @override

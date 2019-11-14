@@ -2,24 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:Tradomatic/components/createOffer/OfferBloc.dart';
-import 'package:Tradomatic/components/createOffer/OfferState.dart';
-import 'package:Tradomatic/components/createOffer/OfferEvents.dart';
+import 'package:Tradomatic/components/createOffer/OfferModel.dart';
+import 'package:Tradomatic/components/createOffer/OfferFormsView.dart';
 
 class CreateOfferPage extends StatelessWidget {
+  final model = OfferModel.initial();
+
+  CreateOfferPage({Key key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: BlocBuilder<OfferBloc, OfferState>(builder: (context, state) {
-          if (state == OfferStateAction()) {
-            return RaisedButton(
-                onPressed: () => BlocProvider.of<OfferBloc>(context).add(UpdateOffer(2)),
-                child: Text(state.toString()));
-          }
-          
-          return Text('test1');
-        }),
-      ),
+    return BlocProvider(
+      builder: (context) => OfferBloc(model: model),
+      child: OfferFormsView(),
     );
   }
 }
