@@ -3,7 +3,7 @@ class OfferModel {
 
   OfferModel({this.operation});
 
-  List get props => [operation];
+  List<Object> get props => [operation];
 
   factory OfferModel.initial() {
     return OfferModel(

@@ -25,7 +25,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: 'createOffer',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        buttonColor: Color.fromRGBO(172, 204, 70, 1)),
+        buttonColor: Color.fromRGBO(172, 204, 70, 1),
+      ),
     );
   }
 }

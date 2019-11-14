@@ -3,12 +3,13 @@ import 'package:equatable/equatable.dart';
 abstract class OfferState extends Equatable {
   const OfferState();
 
+  @override
   List<Object> get props => [];
 }
 
 class OfferStateAction extends OfferState {}
 
-class OfferStateCurrencyBasis extends OfferState {}
+class OfferStateCurrencyBasises extends OfferState {}
 
 class OfferStateCommodity extends OfferState {}
 

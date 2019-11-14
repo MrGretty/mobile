@@ -7,14 +7,14 @@ abstract class OfferEvents extends Equatable {
   List<Object> get props => [];
 }
 
-class UpdateOffer extends OfferEvents {
+class OperationChanged extends OfferEvents {
   final int operation;
-  
-  const UpdateOffer(this.operation);
+
+  const OperationChanged(this.operation);
 
   @override
   List<Object> get props => [operation];
 
   @override
-  String toString() => 'UpdateTodo { updatedTodo: $operation }';
+  String toString() => 'OperationChanged { operation: $operation }';
 }

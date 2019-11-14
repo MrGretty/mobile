@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:Tradomatic/components/createOffer/OfferBloc.dart';
-import 'package:Tradomatic/components/createOffer/OfferModel.dart';
+import 'package:Tradomatic/components/createOffer/bloc/block.dart';
 import 'package:Tradomatic/components/createOffer/OfferFormsView.dart';
 
 class CreateOfferPage extends StatelessWidget {
