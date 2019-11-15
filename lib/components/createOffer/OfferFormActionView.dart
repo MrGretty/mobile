@@ -54,7 +54,7 @@ class OfferFormActionView extends StatelessWidget {
                               "Аукцион (продажа)",
                               style: TextStyle(fontSize: 18.0),
                             ),
-                          ), // text
+                          ),
                         ],
                       ),
                       shape: this.shape,
@@ -114,7 +114,7 @@ class OfferFormActionView extends StatelessWidget {
                               "Купить",
                               style: TextStyle(fontSize: 18.0),
                             ),
-                          ), // text
+                          ),
                         ],
                       ),
                       shape: this.shape,

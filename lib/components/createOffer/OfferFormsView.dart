@@ -19,7 +19,7 @@ class OfferFormsView extends StatelessWidget {
   getLayoutAccordingToState(state) {
     if (state is OfferStateAction) return OfferFormActionView();
     if (state is OfferStateCurrencyBasises) {
-      return OfferFormCurrencyBasisView(state: state);
+      return OfferFormCurrencyBasisView(operation: state.operation);
     }
 
     return Text('s');
@@ -41,6 +41,7 @@ class OfferFormsView extends StatelessWidget {
         ),
         body: BlocBuilder<OfferBloc, OfferState>(builder: (context, state) {
           return Container(
+              // color: Colors.blue,
               child: Column(
             children: <Widget>[
               PercentIndicator(
@@ -60,10 +61,8 @@ class OfferFormsView extends StatelessWidget {
               height: 0,
             );
           return NavigationButtons(
-            onButtonBackPressed: () => BlocProvider.of<OfferBloc>(context)
-                .add(StateChanged(state, 'prev')),
-            onButtonMovePressed: () => BlocProvider.of<OfferBloc>(context)
-                .add(StateChanged(state, 'next')),
+            onButtonBackPressed: () => null,
+            onButtonMovePressed: () => null,
           );
         }));
   }
