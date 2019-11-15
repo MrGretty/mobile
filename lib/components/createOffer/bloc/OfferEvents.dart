@@ -1,3 +1,4 @@
+import 'package:Tradomatic/components/createOffer/bloc/block.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class OfferEvents extends Equatable {
@@ -17,4 +18,11 @@ class OperationChanged extends OfferEvents {
 
   @override
   String toString() => 'OperationChanged { operation: $operation }';
+}
+
+class StateChanged extends OfferEvents {
+  final OfferState state;
+  final String action;
+
+  StateChanged(this.state, this.action);
 }

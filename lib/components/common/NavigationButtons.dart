@@ -4,8 +4,8 @@ class NavigationButtons extends StatelessWidget {
   NavigationButtons(
       {@required this.onButtonBackPressed,
       @required this.onButtonMovePressed,
-      this.isDisableBack,
-      this.isDisableMove});
+      this.isDisableBack = false,
+      this.isDisableMove = false});
 
   final VoidCallback onButtonBackPressed, onButtonMovePressed;
 

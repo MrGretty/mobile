@@ -7,7 +7,7 @@ class OfferModel {
 
   factory OfferModel.initial() {
     return OfferModel(
-      operation: null,
+      operation: null, 
     );
   }
 
@@ -17,6 +17,6 @@ class OfferModel {
 
   @override
   String toString() {
-    return '$operation';
+    return '$operation lalala';
   }
 }

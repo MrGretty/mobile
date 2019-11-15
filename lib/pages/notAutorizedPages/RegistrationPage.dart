@@ -1,4 +1,4 @@
-import 'package:Tradomatic/components/registration/NavigationButtons.dart';
+import 'package:Tradomatic/components/common/NavigationButtons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/percent_indicator.dart';

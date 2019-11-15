@@ -14,14 +14,27 @@ class OfferBloc extends Bloc<OfferEvents, OfferState> {
 
   @override
   Stream<OfferState> mapEventToState(OfferEvents event) async* {
+    print(event);
     if (event is OperationChanged) {
       yield* _mapOperationChangedToState(event);
+    }
+
+    if (event is StateChanged) {
+      yield* _mapStateChangedToState(event);
     }
   }
 
   Stream<OfferState> _mapOperationChangedToState(
       OperationChanged event) async* {
     model.setFields(operation: event.operation);
-    yield OfferStateCurrencyBasises();
+    yield OfferStateCurrencyBasises(operation: event.operation);
+  }
+
+  Stream<OfferState> _mapStateChangedToState(StateChanged event) async* {
+    if (event.action == 'next') {
+      yield OfferStateResolver.next(event.state);
+    } else {
+      yield OfferStateResolver.prev(event.state);
+    }
   }
 }
