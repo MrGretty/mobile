@@ -1,17 +1,17 @@
 class OfferModel {
-  int operation;
+  int operation, basis;
   String currency;
-  String basis;
 
   OfferModel({this.operation, this.currency, this.basis});
 
   List<Object> get props => [operation, currency, basis];
 
   factory OfferModel.initial() {
-    return OfferModel(operation: null, currency: '', basis: '');
+    return OfferModel(operation: null, currency: '', basis: null);
   }
 
-  void setFields({int operation, String currency, String basis}) {
+  
+  void setFields({int operation, String currency, int basis}) {
     this
       ..operation = operation ?? this.operation
       ..currency = currency ?? this.currency

@@ -18,11 +18,21 @@ class OfferBloc extends Bloc<OfferEvents, OfferState> {
     if (event is OperationChanged) {
       yield* _mapOperationChangedToState(event);
     }
+
+    if (event is CurrencyBasisChanged) {
+      yield* _mapCurrencyBasisChangedToState(event);
+    }
   }
 
   Stream<OfferState> _mapOperationChangedToState(
       OperationChanged event) async* {
     model.setFields(operation: event.operation);
     yield OfferStateCurrencyBasises(operation: event.operation);
+  }
+
+  Stream<OfferState> _mapCurrencyBasisChangedToState(
+      CurrencyBasisChanged event) async* {
+    if (event.currency != null) model.setFields(currency: event.currency);
+    if (event.basis != null) model.setFields(basis: event.basis);
   }
 }

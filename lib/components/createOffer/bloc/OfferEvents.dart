@@ -20,7 +20,8 @@ class OperationChanged extends OfferEvents {
 }
 
 class CurrencyBasisChanged extends OfferEvents {
-  final String currency, basis;
+  final String currency;
+  final int basis;
 
   CurrencyBasisChanged({this.currency, this.basis});
 

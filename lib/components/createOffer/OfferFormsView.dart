@@ -19,7 +19,11 @@ class OfferFormsView extends StatelessWidget {
   getLayoutAccordingToState(state) {
     if (state is OfferStateAction) return OfferFormActionView();
     if (state is OfferStateCurrencyBasises) {
-      return OfferFormCurrencyBasisView(operation: state.operation);
+      return OfferFormCurrencyBasisView(
+        operation: state.operation,
+        listBasises: state.getBasisesAccordingToOperation(),
+        listCurrencies: state.getCurrencies()
+      );
     }
 
     return Text('s');
