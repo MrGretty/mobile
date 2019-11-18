@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:Tradomatic/components/common/SecondaryButton.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:Tradomatic/constants/constants.dart' as Constants;
+import 'package:Tradomatic/components/createOffer/bloc/block.dart';
+
+import 'package:Tradomatic/components/common/SecondaryButton.dart';
+import 'package:Tradomatic/components/common/TmChip.dart';
 
 class OfferFormCurrencyBasisView extends StatefulWidget {
   final int operation;
@@ -31,8 +34,23 @@ class _OfferFormCurrencyBasisView extends State<OfferFormCurrencyBasisView> {
     this.listCurrencies = listCurrencies;
   }
 
-  onCurrencyChanged(currency) => this.setState(() => this.currency = currency);
-  onBasisChanged(basis) => this.setState(() => this.basis = basis);
+  onCurrencyChanged(currency) {
+    this.setState(() => this.currency = currency);
+    // test
+    // if (currency != null && this.basis != null) {
+    //   BlocProvider.of<OfferBloc>(context)
+    //       .add(CurrencyBasisChanged(basis: this.basis, currency: currency));
+    // }
+  }
+
+  onBasisChanged(basis) {
+    this.setState(() => this.basis = basis);
+    // test
+    // if (this.currency != null && basis != null) {
+    //   BlocProvider.of<OfferBloc>(context)
+    //       .add(CurrencyBasisChanged(basis: basis, currency: this.currency));
+    // }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +61,7 @@ class _OfferFormCurrencyBasisView extends State<OfferFormCurrencyBasisView> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(5.0),
-            margin: new EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(7.0)),
-              border: Border.all(
-                color: Color.fromRGBO(0, 0, 0, 0.12),
-                width: 1.0,
-              ),
-            ),
-            child: Text(this.operation.toString()),
-          ),
+          TmChip(text: this.operation.toString()),
           Container(
             margin: new EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
             child: Column(
