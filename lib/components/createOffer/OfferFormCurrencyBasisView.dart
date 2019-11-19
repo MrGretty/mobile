@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:Tradomatic/components/createOffer/bloc/block.dart';
 
-import 'package:Tradomatic/components/common/SecondaryButton.dart';
+import 'package:Tradomatic/components/common/TmFlatButton.dart';
 import 'package:Tradomatic/components/common/TmChip.dart';
 
 class OfferFormCurrencyBasisView extends StatefulWidget {
@@ -37,25 +37,24 @@ class _OfferFormCurrencyBasisView extends State<OfferFormCurrencyBasisView> {
   onCurrencyChanged(currency) {
     this.setState(() => this.currency = currency);
     // test
-    // if (currency != null && this.basis != null) {
-    //   BlocProvider.of<OfferBloc>(context)
-    //       .add(CurrencyBasisChanged(basis: this.basis, currency: currency));
-    // }
+    if (currency != null && this.basis != null) {
+      BlocProvider.of<OfferBloc>(context)
+          .add(CurrencyBasisChanged(basis: this.basis, currency: currency));
+    }
   }
 
   onBasisChanged(basis) {
     this.setState(() => this.basis = basis);
     // test
-    // if (this.currency != null && basis != null) {
-    //   BlocProvider.of<OfferBloc>(context)
-    //       .add(CurrencyBasisChanged(basis: basis, currency: this.currency));
-    // }
+    if (this.currency != null && basis != null) {
+      BlocProvider.of<OfferBloc>(context)
+          .add(CurrencyBasisChanged(basis: basis, currency: this.currency));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.red,
       alignment: Alignment.topLeft,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +82,7 @@ class _OfferFormCurrencyBasisView extends State<OfferFormCurrencyBasisView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: this
                           .listCurrencies
-                          .map((currency) => SecondaryButton(
+                          .map((currency) => TmFlatButton(
                               text: currency,
                               leftSideRadius: 7.0,
                               onButtonPressed: () =>
@@ -115,7 +114,7 @@ class _OfferFormCurrencyBasisView extends State<OfferFormCurrencyBasisView> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: this
                             .listBasises
-                            .map((item) => SecondaryButton(
+                            .map((item) => TmFlatButton(
                                 text: item.toString(),
                                 isActive: this.basis == item,
                                 onButtonPressed: () => onBasisChanged(item)))

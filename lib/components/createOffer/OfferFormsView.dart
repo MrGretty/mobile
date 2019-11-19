@@ -7,12 +7,16 @@ import 'package:Tradomatic/components/common/PercentIndicator.dart';
 
 import 'package:Tradomatic/components/createOffer/OfferFormActionView.dart';
 import 'package:Tradomatic/components/createOffer/OfferFormCurrencyBasisView.dart';
+import 'package:Tradomatic/components/createOffer/OfferFormCommodityView.dart';
+
 import 'package:Tradomatic/components/createOffer/bloc/block.dart';
 
 class OfferFormsView extends StatelessWidget {
   getPercentAccordingToState(state) {
     if (state is OfferStateAction) return .1;
     if (state is OfferStateCurrencyBasises) return .2;
+    if (state is OfferStateCommodity) return .3;
+
     return 1.0;
   }
 
@@ -20,10 +24,13 @@ class OfferFormsView extends StatelessWidget {
     if (state is OfferStateAction) return OfferFormActionView();
     if (state is OfferStateCurrencyBasises) {
       return OfferFormCurrencyBasisView(
-        operation: state.operation,
-        listBasises: state.getBasisesAccordingToOperation(),
-        listCurrencies: state.getCurrencies()
-      );
+          operation: state.operation,
+          listBasises: state.getBasisesAccordingToOperation(),
+          listCurrencies: state.getCurrencies());
+    }
+
+    if (state is OfferStateCommodity) {
+      return OfferFormCommodityView();
     }
 
     return Text('s');
@@ -32,6 +39,7 @@ class OfferFormsView extends StatelessWidget {
   getCircleTextAccordingToState(state) {
     if (state is OfferStateAction) return '10%';
     if (state is OfferStateCurrencyBasises) return '20%';
+    if (state is OfferStateCommodity) return '30%';
 
     return '0%';
   }
@@ -65,8 +73,8 @@ class OfferFormsView extends StatelessWidget {
               height: 0,
             );
           return NavigationButtons(
-            onButtonBackPressed: () => null,
-            onButtonMovePressed: () => null,
+            onButtonBackPressed: () => {},
+            onButtonMovePressed: () => {},
           );
         }));
   }

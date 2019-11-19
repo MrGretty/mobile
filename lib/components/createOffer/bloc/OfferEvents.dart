@@ -32,3 +32,15 @@ class CurrencyBasisChanged extends OfferEvents {
   String toString() =>
       'CurrencyBasisChanged { basis: $basis, curreny: $currency }';
 }
+
+class CommodityChanged extends OfferEvents {
+  final int commodity;
+
+  CommodityChanged({this.commodity});
+
+  @override
+  List<Object> get props => [commodity];
+
+  @override
+  String toString() => 'CommodityChanged { commodity: $commodity, }';
+}

@@ -47,6 +47,11 @@ class OfferStateCurrencyBasises extends OfferState {
 }
 
 class OfferStateCommodity extends OfferState {
+  final int operation, basis;
+  final String currency;
+
+  OfferStateCommodity({this.operation, this.basis, this.currency});
+
   @override
   List<Object> get props => [];
 }

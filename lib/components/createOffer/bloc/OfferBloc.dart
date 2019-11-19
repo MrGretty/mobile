@@ -10,7 +10,7 @@ class OfferBloc extends Bloc<OfferEvents, OfferState> {
   OfferBloc({@required this.model});
 
   @override
-  OfferState get initialState => OfferStateAction();
+  OfferState get initialState => OfferStateCommodity();
 
   @override
   Stream<OfferState> mapEventToState(OfferEvents event) async* {
@@ -32,7 +32,11 @@ class OfferBloc extends Bloc<OfferEvents, OfferState> {
 
   Stream<OfferState> _mapCurrencyBasisChangedToState(
       CurrencyBasisChanged event) async* {
-    if (event.currency != null) model.setFields(currency: event.currency);
-    if (event.basis != null) model.setFields(basis: event.basis);
+    model.setFields(currency: event.currency, basis: event.basis);
+
+    yield OfferStateCommodity(
+        basis: event.basis,
+        operation: model.operation,
+        currency: event.currency);
   }
 }

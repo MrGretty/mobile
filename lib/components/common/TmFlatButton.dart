@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SecondaryButton extends StatelessWidget {
+class TmFlatButton extends StatelessWidget {
   final double leftSideRadius, rightSideRadius;
   final bool isActive;
   final String text;
 
   final VoidCallback onButtonPressed;
 
-  SecondaryButton(
+  TmFlatButton(
       {this.leftSideRadius = 0,
       this.rightSideRadius = 0,
       this.isActive = false,
