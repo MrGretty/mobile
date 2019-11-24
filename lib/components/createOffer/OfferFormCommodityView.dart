@@ -41,7 +41,7 @@ class OfferFormCommodityViewButton extends StatelessWidget {
         ),
         shape: this.shape,
         onPressed: () => BlocProvider.of<OfferBloc>(context)
-            .add(OperationChanged(this.commodity)),
+            .add(CommodityChanged(commodity: this.commodity)),
         textColor: Color.fromRGBO(16, 69, 163, 1),
         color: Color.fromRGBO(225, 231, 231, 1),
       ),
@@ -68,8 +68,8 @@ class OfferFormCommodityView extends StatelessWidget {
     return Container(
         alignment: Alignment.center,
         child: Center(
-          child: ListView(
-              shrinkWrap: true,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: chunk(commodities, ROW_SIZE).map((commoditiesRow) {
                 return Container(
                     margin: new EdgeInsets.symmetric(

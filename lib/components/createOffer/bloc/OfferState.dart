@@ -55,3 +55,9 @@ class OfferStateCommodity extends OfferState {
   @override
   List<Object> get props => [];
 }
+
+class OfferStateVolumeQualityCropYear extends OfferState {
+  
+  @override
+  List<Object> get props => [];
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Tradomatic/router.dart' as router;
+import 'package:Tradomatic/routes/routerDemo.dart' as routerDemo;
+import 'package:Tradomatic/routes/routerLoggedIn.dart' as routerLoggedIn;
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 void main() => runApp(MyApp());
@@ -10,6 +11,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  static final bool isLoggedIn = true;
+
   @override
   void initState() {
     super.initState();
@@ -21,8 +24,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tradomatic app',
-      onGenerateRoute: router.generateRoute,
-      initialRoute: 'createOffer',
+      onGenerateRoute: isLoggedIn ? routerDemo.generateRoute : routerLoggedIn.generateRoute,
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         buttonColor: Color.fromRGBO(172, 204, 70, 1),

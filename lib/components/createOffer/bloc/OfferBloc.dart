@@ -10,7 +10,7 @@ class OfferBloc extends Bloc<OfferEvents, OfferState> {
   OfferBloc({@required this.model});
 
   @override
-  OfferState get initialState => OfferStateCommodity();
+  OfferState get initialState => OfferStateAction();
 
   @override
   Stream<OfferState> mapEventToState(OfferEvents event) async* {
